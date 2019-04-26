@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="38q-7d-4k6">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,43 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--More Info View Controller-->
+        <scene sceneID="AEs-B4-Fto">
+            <objects>
+                <viewController id="O7f-kz-RjT" customClass="MoreInfoViewController" customModule="SimplyCrypto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yp9-Fu-Qnt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aon-Dv-ofg" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="100" width="374" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.97011791449999996" blue="0.82980429619999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="4ms-VN-tU2"/>
+                    </view>
+                    <connections>
+                        <outlet property="lineChartView" destination="Aon-Dv-ofg" id="pHV-MD-Lk4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kp0-jJ-aQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-507.24637681159425" y="-176.78571428571428"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="S6l-5I-HYx">
+            <objects>
+                <splitViewController id="38q-7d-4k6" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="RmK-Hn-oWv" kind="relationship" relationship="masterViewController" id="o78-yK-pBv"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Dm-yP-bUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1575" y="-548"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -18,41 +55,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m2F-8P-csV">
-                                <rect key="frame" x="20" y="104" width="374" height="758"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m2F-8P-csV">
+                                <rect key="frame" x="20" y="148" width="374" height="714"/>
+                                <color key="backgroundColor" red="1" green="0.97011791449999996" blue="0.82980429619999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CryptoCell" textLabel="pPp-Ot-nWF" style="IBUITableViewCellStyleDefault" id="QDA-Yp-FRZ" customClass="CryptoCell" customModule="SimplyCrypto" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CryptoCell" id="QDA-Yp-FRZ" customClass="CryptoCell" customModule="SimplyCrypto" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QDA-Yp-FRZ" id="mk5-tp-akE">
+                                        <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QDA-Yp-FRZ" id="mk5-tp-akE">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pPp-Ot-nWF">
-                                                    <rect key="frame" x="15" y="0.0" width="339" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Coin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5x-cw-nNt">
+                                                    <rect key="frame" x="0.0" y="-22" width="374" height="88"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="w5x-cw-nNt" firstAttribute="top" secondItem="mk5-tp-akE" secondAttribute="topMargin" constant="-33" id="8JQ-4M-BDo"/>
+                                                <constraint firstAttribute="trailing" secondItem="w5x-cw-nNt" secondAttribute="trailing" id="CHK-6s-OLn"/>
+                                                <constraint firstItem="w5x-cw-nNt" firstAttribute="centerY" secondItem="mk5-tp-akE" secondAttribute="centerY" id="Ve7-bq-stz"/>
+                                                <constraint firstItem="w5x-cw-nNt" firstAttribute="leading" secondItem="mk5-tp-akE" secondAttribute="leading" id="vBz-64-DbV"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.97011791449999996" blue="0.82980429619999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="coinName" destination="pPp-Ot-nWF" id="xZ5-yj-c77"/>
+                                            <outlet property="coinName" destination="w5x-cw-nNt" id="gO6-YM-eDj"/>
+                                            <segue destination="O7f-kz-RjT" kind="showDetail" identifier="MoreInfo" trigger="accessoryAction" id="wDb-HP-gum"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SimplyCrypto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODT-Om-nCM">
-                                <rect key="frame" x="155" y="56" width="104" height="21"/>
+                                <rect key="frame" x="155" y="100" width="104" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.97011791449999996" blue="0.82980429619999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ODT-Om-nCM" secondAttribute="trailing" constant="155" id="0po-ld-F8t"/>
                             <constraint firstItem="ODT-Om-nCM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="155" id="BES-ni-kTW"/>
@@ -64,13 +108,35 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="kQZ-TM-GLW"/>
                     <connections>
                         <outlet property="tableView" destination="m2F-8P-csV" id="iTa-tk-pDt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
+            <point key="canvasLocation" x="402.89855072463769" y="-973.66071428571422"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="b10-Fz-OIH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RmK-Hn-oWv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nk3-UF-EfG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p6m-6z-2AB">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vfh-jD-a6h"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JRC-Va-atG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-507.24637681159425" y="-973.66071428571422"/>
         </scene>
     </scenes>
 </document>
