@@ -18,17 +18,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aon-Dv-ofg" customClass="LineChartView" customModule="Charts">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aon-Dv-ofg" customClass="LineChartView" customModule="Charts">
                                 <rect key="frame" x="20" y="100" width="374" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SCV-Ga-BJm">
+                                <rect key="frame" x="36" y="327" width="342" height="29"/>
+                                <segments>
+                                    <segment title="1 day"/>
+                                    <segment title="1 week"/>
+                                    <segment title="1 month"/>
+                                    <segment title="1 year"/>
+                                    <segment title="All time"/>
+                                </segments>
+                                <connections>
+                                    <action selector="timeChange:" destination="O7f-kz-RjT" eventType="valueChanged" id="1IT-Oq-RhY"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.97011791449999996" blue="0.82980429619999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SCV-Ga-BJm" firstAttribute="top" secondItem="Aon-Dv-ofg" secondAttribute="bottom" constant="27" id="2PG-fC-J5V"/>
+                            <constraint firstItem="SCV-Ga-BJm" firstAttribute="centerX" secondItem="Yp9-Fu-Qnt" secondAttribute="centerX" id="Jq7-vI-Pkz"/>
+                            <constraint firstItem="Aon-Dv-ofg" firstAttribute="top" secondItem="4ms-VN-tU2" secondAttribute="top" constant="12" id="R7f-mH-EMs"/>
+                            <constraint firstItem="4ms-VN-tU2" firstAttribute="bottom" secondItem="SCV-Ga-BJm" secondAttribute="bottom" constant="507" id="XnT-Hz-JCZ"/>
+                            <constraint firstItem="SCV-Ga-BJm" firstAttribute="centerX" secondItem="Aon-Dv-ofg" secondAttribute="centerX" id="f2e-JH-l9n"/>
+                            <constraint firstItem="Aon-Dv-ofg" firstAttribute="leading" secondItem="Yp9-Fu-Qnt" secondAttribute="leadingMargin" id="fGv-ai-tJ5"/>
+                            <constraint firstItem="SCV-Ga-BJm" firstAttribute="leading" secondItem="4ms-VN-tU2" secondAttribute="leading" constant="36" id="rvS-x3-RAg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4ms-VN-tU2"/>
                     </view>
                     <connections>
                         <outlet property="lineChartView" destination="Aon-Dv-ofg" id="pHV-MD-Lk4"/>
+                        <outlet property="timeButtons" destination="SCV-Ga-BJm" id="S9O-3V-Ie5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kp0-jJ-aQz" userLabel="First Responder" sceneMemberID="firstResponder"/>

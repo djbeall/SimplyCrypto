@@ -13,6 +13,10 @@ class MoreInfoViewController: UIViewController {
 
     var coin: String?
     @IBOutlet weak var lineChartView: LineChartView!
+    @IBOutlet weak var timeButtons: UISegmentedControl!
+    @IBAction func timeChange(_ sender: UISegmentedControl) {
+        setChart()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -21,7 +25,7 @@ class MoreInfoViewController: UIViewController {
         self.lineChartView.legend.enabled = false
         let xAxis = self.lineChartView.xAxis
         xAxis.drawLabelsEnabled = false
-        setChart(20)
+        setChart()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -30,8 +34,24 @@ class MoreInfoViewController: UIViewController {
 
     }
     
-    func setChart(_ count: Int = 10) {
+    func setChart() {
         var values: [ChartDataEntry] = []
+        let count: Int
+        switch timeButtons.selectedSegmentIndex {
+        case 0:
+            count = 24
+        case 1:
+            count = 7
+        case 2:
+            count = 15
+        case 3:
+            count = 12
+        case 4:
+            count = 10
+        default:
+            count = 1
+            break
+        }
         for i in 1...count {
             values.append(ChartDataEntry(x: Double(i), y: Double(i * i)))
         }
@@ -40,6 +60,7 @@ class MoreInfoViewController: UIViewController {
         
         
         self.lineChartView.data = data
+        self.lineChartView.animate(xAxisDuration: 1, yAxisDuration: 1)
     }
 
     /*
