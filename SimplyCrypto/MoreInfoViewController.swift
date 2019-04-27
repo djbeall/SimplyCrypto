@@ -12,13 +12,22 @@ import Charts
 class MoreInfoViewController: UIViewController {
 
     var coin: String?
+    var container: CryptoContainer?
     @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var timeButtons: UISegmentedControl!
     @IBAction func timeChange(_ sender: UISegmentedControl) {
         setChart()
     }
+    @IBOutlet weak var crypto: UILabel!
+    @IBOutlet weak var world: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        container = CryptoContainer()
+        let test = container?.getCurrentPrice(crypto: cryptoCurrencies.BTC.rawValue, world: worldCurrencies.USD.rawValue)
+        if let worldText = test?.worldValue, let cryptoText = test?.crptoValue {
+            world.text = String(worldText)
+            crypto.text = String(cryptoText)
+        }
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.lineChartView.drawGridBackgroundEnabled = true
         self.lineChartView.autoScaleMinMaxEnabled = true

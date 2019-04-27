@@ -34,6 +34,20 @@
                                     <action selector="timeChange:" destination="O7f-kz-RjT" eventType="valueChanged" id="1IT-Oq-RhY"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsv-hS-sFs">
+                                <rect key="frame" x="48" y="421" width="42" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvh-vA-tzn">
+                                <rect key="frame" x="229" y="434" width="165" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.97011791449999996" blue="0.82980429619999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -48,8 +62,10 @@
                         <viewLayoutGuide key="safeArea" id="4ms-VN-tU2"/>
                     </view>
                     <connections>
+                        <outlet property="crypto" destination="Hvh-vA-tzn" id="QUx-ZN-tiP"/>
                         <outlet property="lineChartView" destination="Aon-Dv-ofg" id="pHV-MD-Lk4"/>
                         <outlet property="timeButtons" destination="SCV-Ga-BJm" id="S9O-3V-Ie5"/>
+                        <outlet property="world" destination="Zsv-hS-sFs" id="FVn-ET-rvQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kp0-jJ-aQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
