@@ -46,8 +46,6 @@ class MoreInfoViewController: UIViewController {
             count = 15
         case 3:
             count = 12
-        case 4:
-            count = 10
         default:
             count = 1
             break

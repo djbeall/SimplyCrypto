@@ -29,7 +29,6 @@
                                     <segment title="1 week"/>
                                     <segment title="1 month"/>
                                     <segment title="1 year"/>
-                                    <segment title="All time"/>
                                 </segments>
                                 <connections>
                                     <action selector="timeChange:" destination="O7f-kz-RjT" eventType="valueChanged" id="1IT-Oq-RhY"/>
