@@ -61,7 +61,9 @@ class CryptoContainer {
                     let dic = (dictionary["Data"] as? [String: [String: Any]])
                     var ret: [String: String] = [:]
                     for i in dic!.keys {
-                        ret[dic![i]!["FullName"]! as! String] = dic![i]!["Symbol"]! as? String
+                        if (dic![i]!["IsTrading"]! as! Bool) {
+                            ret[dic![i]!["FullName"]! as! String] = dic![i]!["Symbol"]! as? String
+                        }
                     }
                     completionHandler(ret, nil)
                 }
