@@ -22,7 +22,7 @@ class MoreInfoViewController: UIViewController {
     @IBOutlet weak var world: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        CryptoContainer.getCurrentPrice(crypto: cryptoCurrencies.BTC.rawValue, world: worldCurrencies.USD.rawValue) { str, error in
+        CryptoContainer.getCurrentPrice(crypto: coin!, world: worldCurrencies.USD.rawValue) { str, error in
             DispatchQueue.main.async {
                 print(str)
                 self.crypto.text = String(str)

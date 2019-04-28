@@ -24,6 +24,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     var completeCoinDict: [String: String]? = nil
+    var coinToSegue: String? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -59,17 +60,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let currCell = tableView.cellForRow(at: indexPath) as? CryptoCell {
+            print(completeCoinDict![currCell.coinName!.text! as String] as! String)
+            coinToSegue = completeCoinDict![currCell.coinName!.text! as String] as! String
+        }
         self.performSegue(withIdentifier: "MoreInfo", sender: self)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        if segue.identifier == "CoinList" {
             let seg = segue.destination as? CoinListViewController
-            //print(completeCoinDict)
-        print("here1")
+        
             seg?.coinList = self.completeCoinDict?.keys.sorted()
         } else {
-            //let seg = segue.destination as? MoreInfoViewController
-        
+            let seg = segue.destination as? MoreInfoViewController
+            print(coinToSegue)
+            seg?.coin = coinToSegue
         
         }
     }

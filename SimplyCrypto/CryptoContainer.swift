@@ -33,7 +33,7 @@ class CryptoContainer {
         //self.getCurrentPrice(crypto: desiredCrypto, world: desiredWorld)
     }
     
-    static func getCurrentPrice(crypto: cryptoCurrencies.RawValue, world: worldCurrencies.RawValue, completionHandler: @escaping (Double, Error?)->Void){
+    static func getCurrentPrice(crypto: String, world: worldCurrencies.RawValue, completionHandler: @escaping (Double, Error?)->Void){
         let requestString = "https://min-api.cryptocompare.com/data/price?fsym="+crypto+"&tsyms="+world
         let url = URL(string: requestString)!
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
