@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SimplyCrypto/ViewController.swift"
-            timestampString = "578014284.841484"
+            timestampString = "578175315.052951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "numberOfSections(in:)"
             landmarkType = "7">
          </BreakpointContent>

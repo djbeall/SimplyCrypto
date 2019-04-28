@@ -25,45 +25,53 @@ class CryptoContainer {
     var desiredWorld = worldCurrencies.USD.rawValue
     
     var cryptoVal: Double? = nil
-    var worldVal: Double? = nil
+    //var worldVal: Double? = nil
     
     init() {
         desiredCrypto = cryptoCurrencies.BTC.rawValue
         desiredWorld = worldCurrencies.USD.rawValue
-        self.getCurrentPrice(crypto: desiredCrypto, world: desiredWorld)
+        //self.getCurrentPrice(crypto: desiredCrypto, world: desiredWorld)
     }
     
-    func getCurrentPrice(crypto: cryptoCurrencies.RawValue, world: worldCurrencies.RawValue)
-        -> (crptoValue:Double?, worldValue:Double?) {
-            //need this for the bootleg block
-            worldVal = nil
-            desiredCrypto = crypto
-            desiredWorld = world
-            print(crypto)
-            print(world)
-            let requestString = "https://min-api.cryptocompare.com/data/price?fsym="+crypto+"&tsyms="+world
-            let url = URL(string: requestString)!
-            cryptoVal = 1;
-            let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-                guard let data = data else {
-                    return
-                }
+    static func getCurrentPrice(crypto: cryptoCurrencies.RawValue, world: worldCurrencies.RawValue, completionHandler: @escaping (Double, Error?)->Void){
+        let requestString = "https://min-api.cryptocompare.com/data/price?fsym="+crypto+"&tsyms="+world
+        let url = URL(string: requestString)!
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            if let data = data {
                 let json = try? JSONSerialization.jsonObject(with: data, options: [])
                 if let dictionary = json as? [String: Any] {
-                    print(dictionary[world])
-                    if let value = dictionary[world] as? Double?{
-                        //print(value)
-                        self.worldVal = value
-                    }
+                    print(dictionary[world]!)
+                    completionHandler(dictionary[world] as! Double, nil)
                 }
-                //print(String(data: data, encoding: .utf8)!)
+            } else {
+                print(error!.localizedDescription)
             }
-            task.resume()
-            while(worldVal == nil || task.error != nil) {
-                //bootleg block
-            }
-            print(worldVal)
-            
-            return (worldVal,cryptoVal)
+                
+        }
+        task.resume()
     }
+    
+    static func getCoinList(completionHandler: @escaping ([String: String]?, Error?)->Void){
+        let requestString = "https://min-api.cryptocompare.com/data/all/coinlist"
+        let url = URL(string: requestString)!
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            if let data = data {
+                let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let dictionary = json as? [String: Any] {
+                    let dic = (dictionary["Data"] as? [String: [String: Any]])
+                    var ret: [String: String] = [:]
+                    for i in dic!.keys {
+                        ret[dic![i]!["FullName"]! as! String] = dic![i]!["Symbol"]! as? String
+                    }
+                    completionHandler(ret, nil)
+                }
+            } else {
+                print(error!.localizedDescription)
+            }
+            
+        }
+        task.resume()
+    }
+    
 }
+

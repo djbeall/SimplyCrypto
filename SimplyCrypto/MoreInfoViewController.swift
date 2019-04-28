@@ -22,11 +22,11 @@ class MoreInfoViewController: UIViewController {
     @IBOutlet weak var world: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        container = CryptoContainer()
-        let test = container?.getCurrentPrice(crypto: cryptoCurrencies.BTC.rawValue, world: worldCurrencies.USD.rawValue)
-        if let worldText = test?.worldValue, let cryptoText = test?.crptoValue {
-            world.text = String(worldText)
-            crypto.text = String(cryptoText)
+        CryptoContainer.getCurrentPrice(crypto: cryptoCurrencies.BTC.rawValue, world: worldCurrencies.USD.rawValue) { str, error in
+            DispatchQueue.main.async {
+                print(str)
+                self.crypto.text = String(str)
+            }
         }
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.lineChartView.drawGridBackgroundEnabled = true
@@ -39,8 +39,6 @@ class MoreInfoViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-
     }
     
     func setChart() {

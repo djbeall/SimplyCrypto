@@ -15,6 +15,7 @@
 		48BDF79C226F753500A455A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48BDF79B226F753500A455A3 /* Assets.xcassets */; };
 		48BDF79F226F753500A455A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48BDF79D226F753500A455A3 /* LaunchScreen.storyboard */; };
 		48BDF7AA226F753500A455A3 /* SimplyCryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BDF7A9226F753500A455A3 /* SimplyCryptoTests.swift */; };
+		48FA7D1822762DC70068E7B7 /* CoinListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA7D1722762DC70068E7B7 /* CoinListViewController.swift */; };
 		4E4132DBB4136C2931C2A4E1 /* Pods_SimplyCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A65EA0D5E05CEB5EF49FCE /* Pods_SimplyCrypto.framework */; };
 		9B54A03EC4819DC5307539CF /* Pods_SimplyCryptoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 360CD6FF3990BCBF25BA6D36 /* Pods_SimplyCryptoTests.framework */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		48BDF7A5226F753500A455A3 /* SimplyCryptoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimplyCryptoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48BDF7A9226F753500A455A3 /* SimplyCryptoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplyCryptoTests.swift; sourceTree = "<group>"; };
 		48BDF7AB226F753500A455A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48FA7D1722762DC70068E7B7 /* CoinListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListViewController.swift; sourceTree = "<group>"; };
 		65C939DCBD5B0CB86E0C8FA8 /* Pods-SimplyCrypto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCrypto.debug.xcconfig"; path = "Target Support Files/Pods-SimplyCrypto/Pods-SimplyCrypto.debug.xcconfig"; sourceTree = "<group>"; };
 		6C12F2B7F0AAF03142793602 /* Pods-SimplyCrypto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCrypto.release.xcconfig"; path = "Target Support Files/Pods-SimplyCrypto/Pods-SimplyCrypto.release.xcconfig"; sourceTree = "<group>"; };
 		CEA458E25FB987BA71D131EF /* Pods-SimplyCryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCryptoTests.debug.xcconfig"; path = "Target Support Files/Pods-SimplyCryptoTests/Pods-SimplyCryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				48BDF7A0226F753500A455A3 /* Info.plist */,
 				4890F8E32273A14E00291381 /* MoreInfoViewController.swift */,
 				4890F8E52273EB5800291381 /* CryptoContainer.swift */,
+				48FA7D1722762DC70068E7B7 /* CoinListViewController.swift */,
 			);
 			path = SimplyCrypto;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			files = (
 				4890F8E62273EB5800291381 /* CryptoContainer.swift in Sources */,
 				4890F8E42273A14E00291381 /* MoreInfoViewController.swift in Sources */,
+				48FA7D1822762DC70068E7B7 /* CoinListViewController.swift in Sources */,
 				48BDF797226F753400A455A3 /* ViewController.swift in Sources */,
 				48BDF795226F753400A455A3 /* AppDelegate.swift in Sources */,
 			);
