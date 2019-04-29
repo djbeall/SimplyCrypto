@@ -162,7 +162,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o9k-xA-7vq">
-                                <rect key="frame" x="20" y="114" width="374" height="726"/>
+                                <rect key="frame" x="20" y="154" width="374" height="686"/>
                                 <color key="backgroundColor" red="1" green="0.97011791449999996" blue="0.82980429619999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CoinCell" id="kex-sa-3j5" customClass="CoinCell" customModule="SimplyCrypto" customModuleProvider="target">
@@ -173,7 +173,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9c-jf-Mtl">
-                                                    <rect key="frame" x="40" y="5" width="294" height="34"/>
+                                                    <rect key="frame" x="40" y="-61" width="294" height="166"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -182,9 +182,9 @@
                                             <color key="backgroundColor" red="1" green="0.97011791449999996" blue="0.82980429619999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="n9c-jf-Mtl" firstAttribute="leading" secondItem="23u-XT-7bL" secondAttribute="leadingMargin" constant="20" id="Ecq-0e-CAQ"/>
-                                                <constraint firstItem="n9c-jf-Mtl" firstAttribute="top" secondItem="23u-XT-7bL" secondAttribute="topMargin" constant="-6" id="IK3-pl-RCf"/>
                                                 <constraint firstItem="n9c-jf-Mtl" firstAttribute="centerX" secondItem="23u-XT-7bL" secondAttribute="centerX" id="VyD-fD-5Ge"/>
-                                                <constraint firstItem="n9c-jf-Mtl" firstAttribute="centerY" secondItem="23u-XT-7bL" secondAttribute="centerY" id="s4h-2G-adk"/>
+                                                <constraint firstItem="n9c-jf-Mtl" firstAttribute="top" secondItem="23u-XT-7bL" secondAttribute="topMargin" constant="-72" id="bKl-in-ONh"/>
+                                                <constraint firstItem="n9c-jf-Mtl" firstAttribute="centerY" secondItem="23u-XT-7bL" secondAttribute="centerY" id="psK-JI-KVn"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="0.97011791449999996" blue="0.82980429619999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -194,17 +194,34 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMh-q7-IOx">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                            </navigationBar>
+                            <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="EgU-ZN-dsz">
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Kct-Pb-bia"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.97011791449999996" blue="0.82980429619999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="o9k-xA-7vq" firstAttribute="leading" secondItem="0os-4x-8rP" secondAttribute="leading" constant="20" id="357-S3-OVp"/>
-                            <constraint firstItem="o9k-xA-7vq" firstAttribute="top" secondItem="0os-4x-8rP" secondAttribute="top" constant="26" id="4JA-XE-BAp"/>
+                            <constraint firstItem="EgU-ZN-dsz" firstAttribute="trailing" secondItem="EMh-q7-IOx" secondAttribute="trailing" id="7ZX-9h-IVI"/>
+                            <constraint firstItem="EgU-ZN-dsz" firstAttribute="leading" secondItem="EMh-q7-IOx" secondAttribute="leading" id="FNw-aT-YLJ"/>
+                            <constraint firstItem="o9k-xA-7vq" firstAttribute="top" secondItem="EgU-ZN-dsz" secondAttribute="bottom" constant="22" id="NIQ-rt-yii"/>
                             <constraint firstItem="0os-4x-8rP" firstAttribute="trailing" secondItem="o9k-xA-7vq" secondAttribute="trailing" constant="20" id="S1V-rb-gdD"/>
+                            <constraint firstItem="EgU-ZN-dsz" firstAttribute="top" secondItem="EMh-q7-IOx" secondAttribute="bottom" id="d1d-zH-Kyv"/>
                             <constraint firstItem="0os-4x-8rP" firstAttribute="bottom" secondItem="o9k-xA-7vq" secondAttribute="bottom" constant="22" id="jEx-Vp-uSt"/>
+                            <constraint firstItem="EgU-ZN-dsz" firstAttribute="leading" secondItem="wp6-Dd-0nw" secondAttribute="leading" id="p5Q-gL-RWl"/>
+                            <constraint firstItem="EgU-ZN-dsz" firstAttribute="centerX" secondItem="o9k-xA-7vq" secondAttribute="centerX" id="vyd-eu-SMI"/>
+                            <constraint firstItem="EgU-ZN-dsz" firstAttribute="top" secondItem="0os-4x-8rP" secondAttribute="top" id="zP7-na-QFl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0os-4x-8rP"/>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="EgU-ZN-dsz" id="jBk-hK-cRq"/>
                         <outlet property="tableView" destination="o9k-xA-7vq" id="UUU-Px-yjJ"/>
                     </connections>
                 </viewController>
