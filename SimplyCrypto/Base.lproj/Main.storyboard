@@ -77,7 +77,7 @@
             <objects>
                 <splitViewController id="38q-7d-4k6" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="RmK-Hn-oWv" kind="relationship" relationship="masterViewController" id="o78-yK-pBv"/>
+                        <segue destination="VXB-8e-AR0" kind="relationship" relationship="masterViewController" id="9bE-BN-xhR"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Dm-yP-bUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -93,7 +93,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="m2F-8P-csV">
-                                <rect key="frame" x="20" y="54" width="374" height="758"/>
+                                <rect key="frame" x="20" y="98" width="374" height="714"/>
                                 <color key="backgroundColor" red="1" green="0.97011791449999996" blue="0.82980429619999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -126,6 +126,15 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWN-L9-9u9">
+                                <rect key="frame" x="180" y="820" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="logOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QjY-eY-bnP"/>
+                                    <segue destination="38q-7d-4k6" kind="show" identifier="Not Signed In" id="ab2-9L-r57"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.97011791449999996" blue="0.82980429619999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -147,12 +156,11 @@
                     <connections>
                         <outlet property="navigationBar" destination="kQZ-TM-GLW" id="loC-W3-1zd"/>
                         <outlet property="tableView" destination="m2F-8P-csV" id="iTa-tk-pDt"/>
-                        <segue destination="VXB-8e-AR0" kind="show" identifier="Not Signed In" id="DOh-C2-bX0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="548" y="-979"/>
+            <point key="canvasLocation" x="1256.521739130435" y="-979.01785714285711"/>
         </scene>
         <!--Coin List View Controller-->
         <scene sceneID="XQk-zZ-OMa">
@@ -228,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bov-Ww-Xa3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1588" y="-979"/>
+            <point key="canvasLocation" x="2143" y="-979"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b10-Fz-OIH">
@@ -244,12 +252,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="D5z-Yh-ODZ"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="39x-ZJ-u7r"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JRC-Va-atG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-507" y="-979"/>
+            <point key="canvasLocation" x="230" y="-994"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="70X-vf-84A">
@@ -286,7 +294,6 @@
                                 <state key="normal" title="Sign In"/>
                                 <connections>
                                     <action selector="signIn:" destination="VXB-8e-AR0" eventType="touchUpInside" id="RXw-9V-Xtx"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="Sign In" id="Nqd-Jh-0Gq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHF-c8-i0H">
@@ -295,7 +302,6 @@
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <action selector="signUp:" destination="VXB-8e-AR0" eventType="touchUpInside" id="wWG-s9-pc9"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="Sign Up" id="fNW-xy-Oiy"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bh-6d-Ig0">
@@ -315,14 +321,12 @@
                     <connections>
                         <outlet property="emailField" destination="eaN-bR-p1b" id="Lz2-ON-POQ"/>
                         <outlet property="passwordField" destination="lk5-Rp-USB" id="irr-0g-oIz"/>
+                        <segue destination="RmK-Hn-oWv" kind="show" identifier="Sign In" id="TCK-pp-Iar"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nf0-LC-RWi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="548" y="-1856"/>
+            <point key="canvasLocation" x="-646" y="-548"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Nqd-Jh-0Gq"/>
-    </inferredMetricsTieBreakers>
 </document>

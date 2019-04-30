@@ -20,6 +20,9 @@ class loginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if FIRAuth.auth()?.currentUser != nil {
+            self.performSegue(withIdentifier: "Sign In", sender: self)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -58,7 +61,7 @@ class loginViewController: UIViewController {
             }else{
                 //user registered successfully
                 self.signInHelper()
-                self.performSegue(withIdentifier: "Sign Up", sender: self)
+                self.performSegue(withIdentifier: "Sign In", sender: self)
                 print(result)
                 
             }
