@@ -16,7 +16,8 @@
 		48BDF79F226F753500A455A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48BDF79D226F753500A455A3 /* LaunchScreen.storyboard */; };
 		48BDF7AA226F753500A455A3 /* SimplyCryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BDF7A9226F753500A455A3 /* SimplyCryptoTests.swift */; };
 		48FA7D1822762DC70068E7B7 /* CoinListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FA7D1722762DC70068E7B7 /* CoinListViewController.swift */; };
-		4E4132DBB4136C2931C2A4E1 /* Pods_SimplyCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A65EA0D5E05CEB5EF49FCE /* Pods_SimplyCrypto.framework */; };
+		5299E5D22276A1BA007DF01C /* Pods_SimplyCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A65EA0D5E05CEB5EF49FCE /* Pods_SimplyCrypto.framework */; };
+		5299E5D32276A1BA007DF01C /* Pods_SimplyCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11A65EA0D5E05CEB5EF49FCE /* Pods_SimplyCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B54A03EC4819DC5307539CF /* Pods_SimplyCryptoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 360CD6FF3990BCBF25BA6D36 /* Pods_SimplyCryptoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,20 @@
 			remoteInfo = SimplyCrypto;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5299E5D42276A1BA007DF01C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5299E5D32276A1BA007DF01C /* Pods_SimplyCrypto.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		11A65EA0D5E05CEB5EF49FCE /* Pods_SimplyCrypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimplyCrypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +61,7 @@
 		48BDF7A9226F753500A455A3 /* SimplyCryptoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplyCryptoTests.swift; sourceTree = "<group>"; };
 		48BDF7AB226F753500A455A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48FA7D1722762DC70068E7B7 /* CoinListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListViewController.swift; sourceTree = "<group>"; };
+		5299E5CA2276A048007DF01C /* Charts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Charts; path = Pods/Charts; sourceTree = "<group>"; };
 		65C939DCBD5B0CB86E0C8FA8 /* Pods-SimplyCrypto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCrypto.debug.xcconfig"; path = "Target Support Files/Pods-SimplyCrypto/Pods-SimplyCrypto.debug.xcconfig"; sourceTree = "<group>"; };
 		6C12F2B7F0AAF03142793602 /* Pods-SimplyCrypto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCrypto.release.xcconfig"; path = "Target Support Files/Pods-SimplyCrypto/Pods-SimplyCrypto.release.xcconfig"; sourceTree = "<group>"; };
 		CEA458E25FB987BA71D131EF /* Pods-SimplyCryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCryptoTests.debug.xcconfig"; path = "Target Support Files/Pods-SimplyCryptoTests/Pods-SimplyCryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -57,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E4132DBB4136C2931C2A4E1 /* Pods_SimplyCrypto.framework in Frameworks */,
+				5299E5D22276A1BA007DF01C /* Pods_SimplyCrypto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +147,7 @@
 		D3E2AE5206C7196346D518E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5299E5CA2276A048007DF01C /* Charts */,
 				11A65EA0D5E05CEB5EF49FCE /* Pods_SimplyCrypto.framework */,
 				360CD6FF3990BCBF25BA6D36 /* Pods_SimplyCryptoTests.framework */,
 			);
@@ -149,6 +166,7 @@
 				48BDF78E226F753400A455A3 /* Frameworks */,
 				48BDF78F226F753400A455A3 /* Resources */,
 				9D5D3B647DFDC2D0E6EE8E2C /* [CP] Embed Pods Frameworks */,
+				5299E5D42276A1BA007DF01C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
