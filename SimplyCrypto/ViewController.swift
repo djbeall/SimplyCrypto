@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import FirebaseAuth
 
 class CryptoCell: UITableViewCell {
     @IBOutlet weak var coinName: UILabel!
@@ -27,6 +28,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var coinToSegue: String? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if FIRAuth.auth()?.currentUser == nil {
+            self.performSegue(withIdentifier: "Not Signed In", sender: self)
+        }
+        
         // Do any additional setup after loading the view.
         navigationBar.title = "SimplyCrypto"
         CryptoContainer.getCoinList(completionHandler: { dic, error in
