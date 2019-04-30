@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>348512049217-j2av0oue4558k4avamk97ul79knnao7v.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.348512049217-j2av0oue4558k4avamk97ul79knnao7v</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA_vsfB-EsFoLjnf_RF_1c4BKKRcrgo_V0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>348512049217</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>group18.SimplyCrypto</string>
+	<key>PROJECT_ID</key>
+	<string>simply-crypto-97dde</string>
+	<key>STORAGE_BUCKET</key>
+	<string>simply-crypto-97dde.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:348512049217:ios:f774cbae7ef0cae8</string>
+	<key>DATABASE_URL</key>
+	<string>https://simply-crypto-97dde.firebaseio.com</string>
+</dict>
+</plist>

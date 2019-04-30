@@ -6,10 +6,17 @@ target 'SimplyCrypto' do
   use_frameworks!
 
   # Pods for SimplyCrypto
-	pod 'Charts'
+    pod 'Charts'
   target 'SimplyCryptoTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
 end
+
+pod 'Firebase'
+pod 'Firebase/Core'
+pod 'Firebase/Database'
+pod 'Firebase/Auth'
+
+
