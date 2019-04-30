@@ -2326,10 +2326,21 @@
 			};
 			name = Release;
 		};
+<<<<<<< HEAD
 		9AB40A3437F8C39E4813CBB77E054849 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 348EBC6AF703C0D65762DC9EB9D12AEF /* GoogleToolboxForMac.xcconfig */;
+=======
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		28136CADFA3000A71325868840915A45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B6431A1656CCFC5FBA41FF2CDEF85FC /* Pods-SimplyCrypto.debug.xcconfig */;
+>>>>>>> 91d6d2d508dc84550e9d68623cc83eb243e9a363
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2339,15 +2350,20 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+<<<<<<< HEAD
 				GCC_PREFIX_HEADER = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-Info.plist";
+=======
+				INFOPLIST_FILE = "Target Support Files/Pods-SimplyCrypto/Pods-SimplyCrypto-Info.plist";
+>>>>>>> 91d6d2d508dc84550e9d68623cc83eb243e9a363
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+<<<<<<< HEAD
 				MODULEMAP_FILE = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac.modulemap";
 				PRODUCT_MODULE_NAME = GoogleToolboxForMac;
 				PRODUCT_NAME = GoogleToolboxForMac;
@@ -2355,12 +2371,24 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 4.2;
+=======
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SimplyCrypto/Pods-SimplyCrypto.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+>>>>>>> 91d6d2d508dc84550e9d68623cc83eb243e9a363
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
+<<<<<<< HEAD
 		A8DBFCBBC7CA3C85ABD473228A9E364E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 062460BAD120B66143CEDDFAEDF59088 /* FirebaseDatabase.xcconfig */;
@@ -2397,6 +2425,11 @@
 		BA075AEC91ED4F4E1EE29B4437C13709 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B6CE44291341DE40B7DDDE28E339887 /* GTMSessionFetcher.xcconfig */;
+=======
+		307A0FE7DF4877EDB2ADD6E89B02702C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 461A3068C10FE129277CEE3088D946D1 /* Pods-SimplyCryptoTests.release.xcconfig */;
+>>>>>>> 91d6d2d508dc84550e9d68623cc83eb243e9a363
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2407,8 +2440,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+<<<<<<< HEAD
 				GCC_PREFIX_HEADER = "Target Support Files/GTMSessionFetcher/GTMSessionFetcher-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/GTMSessionFetcher/GTMSessionFetcher-Info.plist";
+=======
+				INFOPLIST_FILE = "Target Support Files/Pods-SimplyCryptoTests/Pods-SimplyCryptoTests-Info.plist";
+>>>>>>> 91d6d2d508dc84550e9d68623cc83eb243e9a363
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2416,9 +2453,19 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+<<<<<<< HEAD
 				MODULEMAP_FILE = "Target Support Files/GTMSessionFetcher/GTMSessionFetcher.modulemap";
 				PRODUCT_MODULE_NAME = GTMSessionFetcher;
 				PRODUCT_NAME = GTMSessionFetcher;
+=======
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SimplyCryptoTests/Pods-SimplyCryptoTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+>>>>>>> 91d6d2d508dc84550e9d68623cc83eb243e9a363
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -2429,6 +2476,7 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+<<<<<<< HEAD
 		};
 		BF30DF524D486F17BB5F71629CF41DBF /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2449,6 +2497,12 @@
 		C99AF69614000D2267DBD378857A6D32 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B6CE44291341DE40B7DDDE28E339887 /* GTMSessionFetcher.xcconfig */;
+=======
+		};
+		32E26B6929FA43E8CCB76992A7E00B7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 429D0B858572C490CBCDB5164A3186D7 /* Charts.xcconfig */;
+>>>>>>> 91d6d2d508dc84550e9d68623cc83eb243e9a363
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -2459,8 +2513,13 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+<<<<<<< HEAD
 				GCC_PREFIX_HEADER = "Target Support Files/GTMSessionFetcher/GTMSessionFetcher-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/GTMSessionFetcher/GTMSessionFetcher-Info.plist";
+=======
+				GCC_PREFIX_HEADER = "Target Support Files/Charts/Charts-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Charts/Charts-Info.plist";
+>>>>>>> 91d6d2d508dc84550e9d68623cc83eb243e9a363
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2468,9 +2527,15 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+<<<<<<< HEAD
 				MODULEMAP_FILE = "Target Support Files/GTMSessionFetcher/GTMSessionFetcher.modulemap";
 				PRODUCT_MODULE_NAME = GTMSessionFetcher;
 				PRODUCT_NAME = GTMSessionFetcher;
+=======
+				MODULEMAP_FILE = "Target Support Files/Charts/Charts.modulemap";
+				PRODUCT_MODULE_NAME = Charts;
+				PRODUCT_NAME = Charts;
+>>>>>>> 91d6d2d508dc84550e9d68623cc83eb243e9a363
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -2481,7 +2546,11 @@
 			};
 			name = Debug;
 		};
+<<<<<<< HEAD
 		CB0648CA85EC80FDCE7C355E4DB05CEE /* Release */ = {
+=======
+		767200D10D6734DAB533BE1CF2A0A07F /* Release */ = {
+>>>>>>> 91d6d2d508dc84550e9d68623cc83eb243e9a363
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 348EBC6AF703C0D65762DC9EB9D12AEF /* GoogleToolboxForMac.xcconfig */;
 			buildSettings = {
@@ -2753,6 +2822,7 @@
 			buildConfigurations = (
 				32E26B6929FA43E8CCB76992A7E00B7B /* Debug */,
 				767200D10D6734DAB533BE1CF2A0A07F /* Release */,
+<<<<<<< HEAD
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2780,6 +2850,8 @@
 			buildConfigurations = (
 				0F720842F0FE3D321312958DBFB9DA6C /* Debug */,
 				0FA78B4921C42D418E9A6A6777F888E7 /* Release */,
+=======
+>>>>>>> 91d6d2d508dc84550e9d68623cc83eb243e9a363
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

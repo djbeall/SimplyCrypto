@@ -28,6 +28,13 @@ class MoreInfoViewController: UIViewController {
                 self.crypto.text = String(str)
             }
         }
+        /* Just a test/example call of the getHistoricalPrice function!*/
+        CryptoContainer.getHistoricalPrice(crypto: coin!, world: worldCurrencies.USD.rawValue, timeType: timeType.histoday.rawValue, limit: 30, timeAggregate: 30) { str, error in
+            DispatchQueue.main.async {
+                //print(str)
+            }
+        }
+        
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.lineChartView.drawGridBackgroundEnabled = true
         self.lineChartView.autoScaleMinMaxEnabled = true
