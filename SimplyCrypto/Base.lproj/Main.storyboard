@@ -23,7 +23,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SCV-Ga-BJm">
-                                <rect key="frame" x="36" y="327" width="342" height="29"/>
+                                <rect key="frame" x="79.5" y="327" width="255" height="29"/>
                                 <segments>
                                     <segment title="1 day"/>
                                     <segment title="1 week"/>
@@ -34,16 +34,14 @@
                                     <action selector="timeChange:" destination="O7f-kz-RjT" eventType="valueChanged" id="1IT-Oq-RhY"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Value:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsv-hS-sFs">
-                                <rect key="frame" x="48" y="421" width="126" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Value:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsv-hS-sFs">
+                                <rect key="frame" x="48" y="438" width="109.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvh-vA-tzn">
-                                <rect key="frame" x="213" y="432" width="165" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvh-vA-tzn">
+                                <rect key="frame" x="165.5" y="432" width="0.0" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,13 +49,18 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.97011791449999996" blue="0.82980429619999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Hvh-vA-tzn" firstAttribute="top" secondItem="SCV-Ga-BJm" secondAttribute="bottom" constant="77" id="1aY-jF-NRg"/>
                             <constraint firstItem="SCV-Ga-BJm" firstAttribute="top" secondItem="Aon-Dv-ofg" secondAttribute="bottom" constant="27" id="2PG-fC-J5V"/>
+                            <constraint firstItem="Zsv-hS-sFs" firstAttribute="leading" secondItem="4ms-VN-tU2" secondAttribute="leading" constant="48" id="7Yp-SQ-fVd"/>
+                            <constraint firstItem="Hvh-vA-tzn" firstAttribute="centerY" secondItem="Zsv-hS-sFs" secondAttribute="centerY" id="Aeu-UU-88a"/>
                             <constraint firstItem="SCV-Ga-BJm" firstAttribute="centerX" secondItem="Yp9-Fu-Qnt" secondAttribute="centerX" id="Jq7-vI-Pkz"/>
                             <constraint firstItem="Aon-Dv-ofg" firstAttribute="top" secondItem="4ms-VN-tU2" secondAttribute="top" constant="12" id="R7f-mH-EMs"/>
+                            <constraint firstItem="4ms-VN-tU2" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hvh-vA-tzn" secondAttribute="trailing" symbolic="YES" id="Rb3-ff-UIO"/>
                             <constraint firstItem="4ms-VN-tU2" firstAttribute="bottom" secondItem="SCV-Ga-BJm" secondAttribute="bottom" constant="507" id="XnT-Hz-JCZ"/>
                             <constraint firstItem="SCV-Ga-BJm" firstAttribute="centerX" secondItem="Aon-Dv-ofg" secondAttribute="centerX" id="f2e-JH-l9n"/>
                             <constraint firstItem="Aon-Dv-ofg" firstAttribute="leading" secondItem="Yp9-Fu-Qnt" secondAttribute="leadingMargin" id="fGv-ai-tJ5"/>
-                            <constraint firstItem="SCV-Ga-BJm" firstAttribute="leading" secondItem="4ms-VN-tU2" secondAttribute="leading" constant="36" id="rvS-x3-RAg"/>
+                            <constraint firstItem="Hvh-vA-tzn" firstAttribute="centerY" secondItem="Yp9-Fu-Qnt" secondAttribute="centerY" id="fbb-sp-BsL"/>
+                            <constraint firstItem="Hvh-vA-tzn" firstAttribute="leading" secondItem="Zsv-hS-sFs" secondAttribute="trailing" constant="8" symbolic="YES" id="qna-zD-51U"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4ms-VN-tU2"/>
                     </view>
