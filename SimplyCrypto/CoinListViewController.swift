@@ -22,6 +22,7 @@ class CoinListViewController: UIViewController, UITableViewDelegate, UITableView
     var isSearching = false
     var coinList: [String]? = ["hi"]
     var filteredData: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()        // Do any additional setup after loading the view.
         tableView.delegate = self
