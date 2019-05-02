@@ -69,7 +69,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let currCell = tableView.cellForRow(at: indexPath) as? CryptoCell {
             print(completeCoinDict![currCell.coinName!.text! as String] as! String)
-            coinToSegue = completeCoinDict![currCell.coinName!.text! as String] as! String
+            coinToSegue = completeCoinDict![currCell.coinName!.text! as String]
         }
         self.performSegue(withIdentifier: "MoreInfo", sender: self)
     }

@@ -12,7 +12,18 @@ import Charts
 class MoreInfoViewController: UIViewController {
 
     var coin: String?
+    var currentPrice: Double? = nil {
+        willSet {
+            self.crypto.text = String(newValue!)
+            setGains(currPrice: newValue!)
+        }
+    }
+    @IBOutlet weak var gainsOutlet: UILabel!
+    @IBOutlet weak var gainsLabel: UILabel!
+    var amountOwned: Double? = nil
+    var valueBought: Double? = nil
     var container: CryptoContainer?
+    @IBOutlet weak var trackButton: UIButton!
     @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var timeButtons: UISegmentedControl!
     @IBAction func timeChange(_ sender: UISegmentedControl) {
@@ -22,11 +33,15 @@ class MoreInfoViewController: UIViewController {
     @IBOutlet weak var world: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        
         CryptoContainer.getCurrentPrice(crypto: coin!, world: worldCurrencies.USD.rawValue) { str, error in
             DispatchQueue.main.async {
                 print(str)
-                self.crypto.text = String(str)
+                
+                self.currentPrice = str
             }
+            
         }
         /* Just a test/example call of the getHistoricalPrice function!*/
         CryptoContainer.getHistoricalPrice(crypto: coin!, world: worldCurrencies.USD.rawValue, timeType: timeType.histoday.rawValue, limit: 30, timeAggregate: 30) { str, error in
@@ -42,10 +57,32 @@ class MoreInfoViewController: UIViewController {
         let xAxis = self.lineChartView.xAxis
         xAxis.drawLabelsEnabled = false
         setChart()
+        trackButton.layer.cornerRadius = 10
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setGains(currPrice: currentPrice)
+        
+    }
+    
+    func setGains(currPrice: Double?) {
+        amountOwned = UserDefaults.standard.dictionary(forKey: "Amount")?[coin!] as! Double?
+        valueBought = UserDefaults.standard.dictionary(forKey: "Value")?[coin!] as! Double?
+        if let _ = self.valueBought, let _ = self.amountOwned, let curr = currPrice {
+            gainsLabel.text = "Gains/Losses: "
+            let val = self.computeGains(curr: curr)
+            gainsOutlet.text = String(val)
+            if val >= 0 {
+                gainsOutlet.textColor = UIColor.green
+            } else {
+                gainsOutlet.textColor = UIColor.red
+            }
+        }
+    }
+    
+    func computeGains(curr: Double?) -> Double {
+        return curr! * amountOwned! - valueBought! * amountOwned!
     }
     
     func setChart() {
@@ -75,14 +112,9 @@ class MoreInfoViewController: UIViewController {
         self.lineChartView.animate(xAxisDuration: 1, yAxisDuration: 1)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let seg = segue.destination as? TrackCurrencyViewController
+        seg?.currentCurrency = coin
     }
-    */
 
 }

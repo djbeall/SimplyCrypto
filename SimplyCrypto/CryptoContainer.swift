@@ -44,7 +44,6 @@ class CryptoContainer {
             if let data = data {
                 let json = try? JSONSerialization.jsonObject(with: data, options: [])
                 if let dictionary = json as? [String: Any] {
-                    print(dictionary[world]!)
                     completionHandler(dictionary[world] as! Double, nil)
                 }
             } else {

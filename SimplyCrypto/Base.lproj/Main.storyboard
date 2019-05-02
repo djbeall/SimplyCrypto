@@ -46,6 +46,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u5U-Bh-vbB">
+                                <rect key="frame" x="48" y="600" width="118" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kv-We-zu1">
+                                <rect key="frame" x="165" y="593" width="170" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQE-2g-9Vd">
+                                <rect key="frame" x="287" y="750" width="73" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Track!"/>
+                                <connections>
+                                    <segue destination="O88-oI-0lv" kind="show" identifier="Tracker" id="BfT-62-fZX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.97011791449999996" blue="0.82980429619999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -66,14 +90,101 @@
                     </view>
                     <connections>
                         <outlet property="crypto" destination="Hvh-vA-tzn" id="QUx-ZN-tiP"/>
+                        <outlet property="gainsLabel" destination="u5U-Bh-vbB" id="nJN-Io-xRs"/>
+                        <outlet property="gainsOutlet" destination="5Kv-We-zu1" id="DHV-et-w40"/>
                         <outlet property="lineChartView" destination="Aon-Dv-ofg" id="pHV-MD-Lk4"/>
                         <outlet property="timeButtons" destination="SCV-Ga-BJm" id="S9O-3V-Ie5"/>
+                        <outlet property="trackButton" destination="TQE-2g-9Vd" id="dlQ-I8-Wju"/>
                         <outlet property="world" destination="Zsv-hS-sFs" id="FVn-ET-rvQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kp0-jJ-aQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="548" y="-162"/>
+            <point key="canvasLocation" x="547.82608695652175" y="-162.05357142857142"/>
+        </scene>
+        <!--Track Currency View Controller-->
+        <scene sceneID="Dhs-t2-UMn">
+            <objects>
+                <viewController id="O88-oI-0lv" customClass="TrackCurrencyViewController" customModule="SimplyCrypto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Tb-fy-hnk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track your earnings!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jch-vK-Q3L">
+                                <rect key="frame" x="43" y="118" width="325" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="iqY-GJ-zjb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much of the currency did you purchase?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5K-u9-yVa">
+                                <rect key="frame" x="20" y="170" width="348" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What was the value of the currency?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nd3-Sl-ssv">
+                                <rect key="frame" x="20" y="259" width="348" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="TsA-0H-Bho"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wdv-MF-IOb">
+                                <rect key="frame" x="20" y="203" width="70" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Okq-vE-fqY">
+                                <rect key="frame" x="20" y="292" width="70" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBE-C8-ISZ">
+                                <rect key="frame" x="127" y="362" width="135" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Start Tracking!"/>
+                                <connections>
+                                    <action selector="trackingAction:" destination="O88-oI-0lv" eventType="touchUpInside" id="SFi-fK-u2p"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.97011791449999996" blue="0.82980429619999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="RPr-su-d5i" firstAttribute="trailing" secondItem="Jch-vK-Q3L" secondAttribute="trailing" constant="46" id="9sB-Wj-S5c"/>
+                            <constraint firstItem="Jch-vK-Q3L" firstAttribute="trailing" secondItem="Nd3-Sl-ssv" secondAttribute="trailing" id="G4c-8G-U01"/>
+                            <constraint firstItem="Jch-vK-Q3L" firstAttribute="leading" secondItem="RPr-su-d5i" secondAttribute="leading" constant="43" id="JyE-AT-Wsd"/>
+                            <constraint firstItem="Okq-vE-fqY" firstAttribute="top" secondItem="Nd3-Sl-ssv" secondAttribute="bottom" constant="8" symbolic="YES" id="PaM-Tt-v8w"/>
+                            <constraint firstItem="Nd3-Sl-ssv" firstAttribute="leading" secondItem="J5K-u9-yVa" secondAttribute="leading" id="VWU-5A-OVT"/>
+                            <constraint firstItem="J5K-u9-yVa" firstAttribute="top" secondItem="Jch-vK-Q3L" secondAttribute="bottom" constant="8" symbolic="YES" id="akg-k5-jcM"/>
+                            <constraint firstItem="Nd3-Sl-ssv" firstAttribute="leading" secondItem="0Tb-fy-hnk" secondAttribute="leadingMargin" id="k1a-sq-XaF"/>
+                            <constraint firstItem="Jch-vK-Q3L" firstAttribute="top" secondItem="RPr-su-d5i" secondAttribute="top" constant="30" id="pey-42-Sfv"/>
+                            <constraint firstItem="Jch-vK-Q3L" firstAttribute="trailing" secondItem="J5K-u9-yVa" secondAttribute="trailing" id="qOd-qQ-qSy"/>
+                            <constraint firstItem="Nd3-Sl-ssv" firstAttribute="leading" secondItem="wdv-MF-IOb" secondAttribute="leading" id="tYI-l7-cCQ"/>
+                            <constraint firstItem="Nd3-Sl-ssv" firstAttribute="top" secondItem="wdv-MF-IOb" secondAttribute="bottom" constant="26" id="tkS-tT-ltP"/>
+                            <constraint firstItem="Nd3-Sl-ssv" firstAttribute="leading" secondItem="Okq-vE-fqY" secondAttribute="leading" id="wef-s2-U8q"/>
+                            <constraint firstItem="Nd3-Sl-ssv" firstAttribute="top" secondItem="0Tb-fy-hnk" secondAttribute="top" constant="259" id="yAc-x4-voX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RPr-su-d5i"/>
+                    </view>
+                    <connections>
+                        <outlet property="currencyAmount" destination="wdv-MF-IOb" id="IhJ-vW-dTB"/>
+                        <outlet property="currencyLabel" destination="Jch-vK-Q3L" id="oek-ke-AEe"/>
+                        <outlet property="currencyValue" destination="Okq-vE-fqY" id="dps-Nt-qHu"/>
+                        <outlet property="trackingButtonOutlet" destination="sBE-C8-ISZ" id="2Yf-KL-QQj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zVh-ox-gqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1850.7246376811595" y="-162.05357142857142"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="S6l-5I-HYx">

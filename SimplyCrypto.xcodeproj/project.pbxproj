@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2FB256022278F3B5009B28F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FB256012278F3B5009B28F0 /* GoogleService-Info.plist */; };
 		2FFB88912279006E00BBFF0F /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB88902279006E00BBFF0F /* loginViewController.swift */; };
+		48840869227A8081002E5E66 /* TrackCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48840868227A8080002E5E66 /* TrackCurrencyViewController.swift */; };
 		4890F8E42273A14E00291381 /* MoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890F8E32273A14E00291381 /* MoreInfoViewController.swift */; };
 		4890F8E62273EB5800291381 /* CryptoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890F8E52273EB5800291381 /* CryptoContainer.swift */; };
 		48BDF795226F753400A455A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BDF794226F753400A455A3 /* AppDelegate.swift */; };
@@ -52,6 +53,7 @@
 		2FB256012278F3B5009B28F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2FFB88902279006E00BBFF0F /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		360CD6FF3990BCBF25BA6D36 /* Pods_SimplyCryptoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimplyCryptoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48840868227A8080002E5E66 /* TrackCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCurrencyViewController.swift; sourceTree = "<group>"; };
 		4890F8E32273A14E00291381 /* MoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoViewController.swift; sourceTree = "<group>"; };
 		4890F8E52273EB5800291381 /* CryptoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoContainer.swift; sourceTree = "<group>"; };
 		48BDF791226F753400A455A3 /* SimplyCrypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplyCrypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +139,7 @@
 				4890F8E52273EB5800291381 /* CryptoContainer.swift */,
 				48FA7D1722762DC70068E7B7 /* CoinListViewController.swift */,
 				2FB256012278F3B5009B28F0 /* GoogleService-Info.plist */,
+				48840868227A8080002E5E66 /* TrackCurrencyViewController.swift */,
 			);
 			path = SimplyCrypto;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4890F8E62273EB5800291381 /* CryptoContainer.swift in Sources */,
+				48840869227A8081002E5E66 /* TrackCurrencyViewController.swift in Sources */,
 				4890F8E42273A14E00291381 /* MoreInfoViewController.swift in Sources */,
 				2FFB88912279006E00BBFF0F /* loginViewController.swift in Sources */,
 				48FA7D1822762DC70068E7B7 /* CoinListViewController.swift in Sources */,
