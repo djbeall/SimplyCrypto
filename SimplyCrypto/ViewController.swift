@@ -74,7 +74,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.performSegue(withIdentifier: "MoreInfo", sender: self)
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        if segue.identifier == "CoinList" {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CoinList" {
             let seg = segue.destination as? CoinListViewController
         
             seg?.coinList = self.completeCoinDict?.keys.sorted()

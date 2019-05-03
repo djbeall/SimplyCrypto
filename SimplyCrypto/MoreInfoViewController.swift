@@ -43,12 +43,6 @@ class MoreInfoViewController: UIViewController {
             }
             
         }
-        /* Just a test/example call of the getHistoricalPrice function!*/
-        CryptoContainer.getHistoricalPrice(crypto: coin!, world: worldCurrencies.USD.rawValue, timeType: timeType.histoday.rawValue, limit: 30, timeAggregate: 30) { str, error in
-            DispatchQueue.main.async {
-                //print(str)
-            }
-        }
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.lineChartView.drawGridBackgroundEnabled = true
@@ -86,25 +80,54 @@ class MoreInfoViewController: UIViewController {
     }
     
     func setChart() {
-        var values: [ChartDataEntry] = []
         let count: Int
         switch timeButtons.selectedSegmentIndex {
         case 0:
-            count = 24
+            count = 23
+            CryptoContainer.getHistoricalPrice(crypto: coin!, world: worldCurrencies.USD.rawValue, timeType: timeType.histoday.rawValue, limit: count, timeAggregate: 1) { res, error in
+                DispatchQueue.main.async {
+                    self.populateChart(ohclvArr: res)
+                }
+            }
         case 1:
-            count = 7
+            count = 6
+            CryptoContainer.getHistoricalPrice(crypto: coin!, world: worldCurrencies.USD.rawValue, timeType: timeType.histoday.rawValue, limit: count, timeAggregate: 1) { res, error in
+                DispatchQueue.main.async {
+                    self.populateChart(ohclvArr: res)
+                }
+            }
         case 2:
-            count = 15
+            count = 29
+            CryptoContainer.getHistoricalPrice(crypto: coin!, world: worldCurrencies.USD.rawValue, timeType: timeType.histoday.rawValue, limit: count, timeAggregate: 1) { res, error in
+                DispatchQueue.main.async {
+                    self.populateChart(ohclvArr: res)
+                }
+            }
         case 3:
-            count = 12
+            count = 11
+            CryptoContainer.getHistoricalPrice(crypto: coin!, world: worldCurrencies.USD.rawValue, timeType: timeType.histoday.rawValue, limit: count, timeAggregate: 30) { res, error in
+                DispatchQueue.main.async {
+                    self.populateChart(ohclvArr: res)
+                }
+            }
         default:
-            count = 1
-            break
+            count = 23
+            CryptoContainer.getHistoricalPrice(crypto: coin!, world: worldCurrencies.USD.rawValue, timeType: timeType.histoday.rawValue, limit: count, timeAggregate: 1) { res, error in
+                DispatchQueue.main.async {
+                    self.populateChart(ohclvArr: res)
+                }
+            }
         }
-        for i in 1...count {
-            values.append(ChartDataEntry(x: Double(i), y: Double(i * i)))
+        
+    }
+    /* Using a seperate function due to the nature of the aysnchrounous api call*/
+    func populateChart(ohclvArr:[CryptoContainer.Ohlcv]) {
+        var values: [ChartDataEntry] = []
+        for i in 1...ohclvArr.count {
+            values.append(ChartDataEntry(x: Double(i), y: ohclvArr[i-1].high ?? -1))
         }
-        let set1 = LineChartDataSet(entries: values, label: "")
+        let date = NSDate(timeIntervalSinceReferenceDate: ohclvArr[0].time!).description
+        let set1 = LineChartDataSet(entries: values, label: date)
         let data = LineChartData(dataSet: set1)
         
         
