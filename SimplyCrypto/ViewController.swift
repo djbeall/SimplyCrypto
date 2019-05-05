@@ -9,6 +9,7 @@
 import UIKit
 import Charts
 import FirebaseAuth
+import Firebase
 
 class CryptoCell: UITableViewCell {
     @IBOutlet weak var coinName: UILabel!
@@ -26,23 +27,51 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     var completeCoinDict: [String: String]? = nil
     var coinToSegue: String? = nil
+    var ref = FIRDatabase.database().reference()
+    let userID = FIRAuth.auth()?.currentUser?.uid ?? ""
+    var lst = [""]
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating();
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+        
         // Do any additional setup after loading the view.
         navigationBar.title = "SimplyCrypto"
+        print("wynh 1")
+        DispatchQueue.main.async {
         CryptoContainer.getCoinList(completionHandler: { dic, error in
-            DispatchQueue.main.async {
+            print("wynh 2")
+            
+                print("wynh 3")
                 self.completeCoinDict = dic
-            }            
+            self.dismiss(animated: false, completion: nil)
+         
         })
+                        }
+        print("wynh 4")
         tableView.delegate = self
         tableView.dataSource = self
+        
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        
+        self.tableView.reloadData()
+        ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as! NSDictionary
+            self.lst = value.allKeys as! [String]
+            self.tableView.reloadData()
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -50,7 +79,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return UserDefaults.standard.array(forKey: "MyCoins")?.count ?? 0
+        return lst.count
+            //UserDefaults.standard.array(forKey: "MyCoins")?.count ?? 0
     }
     
     @IBAction func logOut(_ sender: Any) {
@@ -60,7 +90,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CryptoCell", for: indexPath)
-        if let myCell = cell as? CryptoCell, let str = UserDefaults.standard.array(forKey: "MyCoins")?[indexPath.row] as? String? {
+        //let str = UserDefaults.standard.array(forKey: "MyCoins")?[indexPath.row] as? String?
+        if let myCell = cell as? CryptoCell, let str = lst[indexPath.row] as String? {
             myCell.coinName.text = str
         }
         return cell;
@@ -68,7 +99,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let currCell = tableView.cellForRow(at: indexPath) as? CryptoCell {
-            print(completeCoinDict![currCell.coinName!.text! as String] as! String)
+            print(completeCoinDict)
+            print(currCell)
+            print(currCell.coinName)
             coinToSegue = completeCoinDict![currCell.coinName!.text! as String]
         }
         self.performSegue(withIdentifier: "MoreInfo", sender: self)
