@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CoinCell: UITableViewCell {
     
@@ -16,12 +17,13 @@ class CoinCell: UITableViewCell {
 class CoinListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
-    
     @IBOutlet weak var tableView: UITableView!
     
     var isSearching = false
     var coinList: [String]? = ["hi"]
     var filteredData: [String] = []
+    var ref = FIRDatabase.database().reference()
+    let userID = FIRAuth.auth()?.currentUser?.uid ?? ""
     
     override func viewDidLoad() {
         super.viewDidLoad()        // Do any additional setup after loading the view.
@@ -61,11 +63,19 @@ class CoinListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var lst = UserDefaults.standard.array(forKey: "MyCoins") as? [String] ?? [] as [String]
+//        var lst = [""]
+//        ref.child("users").child(userID).observe(.value, with: { (snapshot) in
+//            let value = snapshot.value as? NSDictionary
+//            lst = value?.allKeys as! [String]
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
         if let currCell = tableView.cellForRow(at: indexPath) as? CoinCell {
             let newStr = currCell.coinName!.text! as String
-            if !lst.contains(newStr) {
+            if lst.contains(newStr) {
                 lst.append(newStr)
-                UserDefaults.standard.set(lst, forKey: "MyCoins")
+//                UserDefaults.standard.set(lst, forKey: "MyCoins")
+                self.ref.child("users").child(userID).child(newStr).setValue(["bought": 0])
                 navigationController?.popViewController(animated: true)
             }
         }
