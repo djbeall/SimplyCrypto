@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class TrackCurrencyViewController: UIViewController{
     
@@ -15,19 +16,29 @@ class TrackCurrencyViewController: UIViewController{
     @IBOutlet weak var currencyValue: UITextField!
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var trackingButtonOutlet: UIButton!
+    var currentCurrency: String? = nil
+    var currentCurrencyFull: String? = nil
     
+    var ref = FIRDatabase.database().reference()
+    let userID = FIRAuth.auth()?.currentUser?.uid ?? ""
     
     @IBAction func trackingAction(_ sender: UIButton) {
-        var amountDict = UserDefaults.standard.dictionary(forKey: "Amount") ?? [:]
-        var valueDict = UserDefaults.standard.dictionary(forKey: "Value") ?? [:]
-        amountDict[currentCurrency!] = Double(currencyAmount.text!)
-        valueDict[currentCurrency!] = Double(currencyValue.text!)
-
-        UserDefaults.standard.set(amountDict, forKey: "Amount")
-        UserDefaults.standard.set(valueDict, forKey: "Value")
-        navigationController?.popViewController(animated: true)        
+//        var amountDict = UserDefaults.standard.dictionary(forKey: "Amount") ?? [:]
+//        var valueDict = UserDefaults.standard.dictionary(forKey: "Value") ?? [:]
+//        amountDict[currentCurrency!] = Double(currencyAmount.text!)
+//        valueDict[currentCurrency!] = Double(currencyValue.text!)
+//
+//        UserDefaults.standard.set(amountDict, forKey: "Amount")
+//        UserDefaults.standard.set(valueDict, forKey: "Value")
+        
+    
+            
+        self.ref.child("users").child(userID).child(currentCurrencyFull ?? "garbageVal").child("Amount").setValue(Double(currencyAmount.text!))
+        self.ref.child("users").child(userID).child(currentCurrencyFull ?? "garbageVal").child("Value").setValue(Double(currencyValue.text!))
+        
+        navigationController?.popViewController(animated: true)
     }
-    var currentCurrency: String? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         trackingButtonOutlet.isEnabled = false

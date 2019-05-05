@@ -75,7 +75,9 @@ class CoinListViewController: UIViewController, UITableViewDelegate, UITableView
             if lst.contains(newStr) {
                 lst.append(newStr)
 //                UserDefaults.standard.set(lst, forKey: "MyCoins")
-                self.ref.child("users").child(userID).child(newStr).setValue(["bought": 0])
+                if(self.ref.child("users").child(userID).value(forKey: newStr) == nil){
+                    self.ref.child("users").child(userID).child(newStr).setValue(["bought": 0])
+                }
                 navigationController?.popViewController(animated: true)
             }
         }
