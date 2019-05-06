@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import Firebase
 
 class MoreInfoViewController: UIViewController {
 
@@ -32,6 +33,9 @@ class MoreInfoViewController: UIViewController {
     }
     @IBOutlet weak var crypto: UILabel!
     @IBOutlet weak var world: UILabel!
+    var ref = FIRDatabase.database().reference()
+    let userID = FIRAuth.auth()?.currentUser?.uid ?? ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
