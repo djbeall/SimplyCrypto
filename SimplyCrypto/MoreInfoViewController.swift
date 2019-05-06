@@ -12,6 +12,7 @@ import Charts
 class MoreInfoViewController: UIViewController {
 
     var coin: String?
+    var coinFull: String?
     var currentPrice: Double? = nil {
         willSet {
             self.crypto.text = String(newValue!)
@@ -138,6 +139,7 @@ class MoreInfoViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let seg = segue.destination as? TrackCurrencyViewController
         seg?.currentCurrency = coin
+        seg?.currentCurrencyFull = coinFull
     }
 
 }

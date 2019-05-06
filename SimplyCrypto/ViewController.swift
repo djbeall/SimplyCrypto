@@ -27,6 +27,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     var completeCoinDict: [String: String]? = nil
     var coinToSegue: String? = nil
+    var coinToSegueFull: String? = nil
     var ref = FIRDatabase.database().reference()
     let userID = FIRAuth.auth()?.currentUser?.uid ?? ""
     var lst = [""]
@@ -44,16 +45,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Do any additional setup after loading the view.
         navigationBar.title = "SimplyCrypto"
         print("wynh 1")
-        DispatchQueue.main.async {
+        
+        
         CryptoContainer.getCoinList(completionHandler: { dic, error in
             print("wynh 2")
             
                 print("wynh 3")
+            DispatchQueue.main.async {
                 self.completeCoinDict = dic
+            
             self.dismiss(animated: false, completion: nil)
+            }
          
         })
-                        }
+        
         print("wynh 4")
         tableView.delegate = self
         tableView.dataSource = self
@@ -102,7 +107,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print(completeCoinDict)
             print(currCell)
             print(currCell.coinName)
+            coinToSegueFull = currCell.coinName.text
             coinToSegue = completeCoinDict![currCell.coinName!.text! as String]
+            print(currCell.coinName!.text! as String)
+            print(coinToSegue)
         }
         self.performSegue(withIdentifier: "MoreInfo", sender: self)
     }
@@ -116,7 +124,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let seg = segue.destination as? MoreInfoViewController
             print(coinToSegue)
             seg?.coin = coinToSegue
-        
+            seg?.coinFull = coinToSegueFull
         }
     }
 }
