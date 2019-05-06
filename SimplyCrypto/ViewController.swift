@@ -71,7 +71,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         self.tableView.reloadData()
         ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as! NSDictionary
+            var value: NSDictionary
+            if let _ = snapshot.value as? NSNull {
+                value = NSDictionary()
+            } else {
+                value = snapshot.value as! NSDictionary
+            }
             self.lst = value.allKeys as! [String]
             self.tableView.reloadData()
         }) { (error) in
