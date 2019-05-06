@@ -62,8 +62,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         print("wynh 4")
         tableView.delegate = self
         tableView.dataSource = self
-        
-      
+        var vals: [String:Any] = [:] /*
+        ref.child("users").observe(.value, with: { (snapshot) in
+            if !snapshot.hasChild(self.userID) {
+                vals = snapshot.value as? [String: Any] ?? [:]
+                vals[self.userID] = [:]
+                self.ref.child("users").push()
+                print(vals)
+                
+            } else {
+                print("2")
+            }
+        })*/
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,13 +81,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         self.tableView.reloadData()
         ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
-            var value: NSDictionary
-            if let _ = snapshot.value as? NSNull {
-                value = NSDictionary()
-            } else {
-                value = snapshot.value as! NSDictionary
+            if snapshot.hasChildren() {
+                //only load data if there is anything to load from the database, the crash was occuring here
+                let value = snapshot.value as! NSDictionary
+                self.lst = value.allKeys as! [String]
             }
-            self.lst = value.allKeys as! [String]
             self.tableView.reloadData()
         }) { (error) in
             print(error.localizedDescription)
