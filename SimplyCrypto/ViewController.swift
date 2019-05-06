@@ -44,6 +44,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // Do any additional setup after loading the view.
         navigationBar.title = "SimplyCrypto"
+        
         print("wynh 1")
         
         
