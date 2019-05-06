@@ -12,6 +12,7 @@ import Firebase
 class CoinCell: UITableViewCell {
     
     @IBOutlet weak var coinName: UILabel!
+    
 }
 
 class CoinListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
@@ -62,14 +63,18 @@ class CoinListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var lst = UserDefaults.standard.array(forKey: "MyCoins") as? [String] ?? [] as [String]
-//        var lst = [""]
-//        ref.child("users").child(userID).observe(.value, with: { (snapshot) in
-//            let value = snapshot.value as? NSDictionary
-//            lst = value?.allKeys as! [String]
-//        }) { (error) in
-//            print(error.localizedDescription)
-//        }
+        //var lst = UserDefaults.standard.array(forKey: "MyCoins") as? [String] ?? [] as [String]
+        var lst = [""]
+        ref.child("users").child(userID).observe(.value, with: { (snapshot) in
+            if snapshot.hasChildren() {
+                let value = snapshot.value as? NSDictionary
+                lst = value?.allKeys as! [String]
+            } else {
+                // I believe here is where we need to create an empty list in the database for the user's saved coins
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         if let currCell = tableView.cellForRow(at: indexPath) as? CoinCell {
             let newStr = currCell.coinName!.text! as String
             if lst.contains(newStr) {

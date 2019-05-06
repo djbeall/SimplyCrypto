@@ -71,8 +71,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         self.tableView.reloadData()
         ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as! NSDictionary
-            self.lst = value.allKeys as! [String]
+            if snapshot.hasChildren() {
+                //only load data if there is anything to load from the database, the crash was occuring here
+                let value = snapshot.value as! NSDictionary
+                self.lst = value.allKeys as! [String]
+            }
             self.tableView.reloadData()
         }) { (error) in
             print(error.localizedDescription)
