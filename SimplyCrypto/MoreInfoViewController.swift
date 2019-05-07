@@ -66,18 +66,24 @@ class MoreInfoViewController: UIViewController {
     }
     
     func setGains(currPrice: Double?) {
-        amountOwned = UserDefaults.standard.dictionary(forKey: "Amount")?[coin!] as! Double?
-        valueBought = UserDefaults.standard.dictionary(forKey: "Value")?[coin!] as! Double?
-        if let _ = self.valueBought, let _ = self.amountOwned, let curr = currPrice {
-            gainsLabel.text = "Gains/Losses: "
-            let val = self.computeGains(curr: curr)
-            gainsOutlet.text = String(val)
-            if val >= 0 {
-                gainsOutlet.textColor = UIColor.green
-            } else {
-                gainsOutlet.textColor = UIColor.red
+        ref.child("users").child(userID).child(coinFull!).observe(.value, with: { snapshot in /*
+            self.amountOwned = UserDefaults.standard.dictionary(forKey: "Amount")?[coin!] as! Double?
+            valueBought = UserDefaults.standard.dictionary(forKey: "Value")?[self.coin!] as! Double?*/
+            let vals = snapshot.value as! [String:Double]
+            self.amountOwned = vals["Amount"]
+            self.valueBought = vals["Value"]
+            if let curr = currPrice, self.amountOwned! > 0.0 && self.valueBought! > 0 {
+                self.gainsLabel.text = "Gains/Losses: "
+                let val = self.computeGains(curr: curr)
+                self.gainsOutlet.text = String(val)
+                if val >= 0 {
+                    self.gainsOutlet.textColor = UIColor.green
+                } else {
+                    self.gainsOutlet.textColor = UIColor.red
+                }
             }
-        }
+
+        })
     }
     
     func computeGains(curr: Double?) -> Double {

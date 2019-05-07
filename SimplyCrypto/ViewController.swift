@@ -63,19 +63,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         print("wynh 4")
         tableView.delegate = self
         tableView.dataSource = self
-        var vals: [String:Any] = [:] /*
+       // var vals: [String: Any]
+/*
+        addUserToDatabase { (vals) in
+            
+            print(vals)
+            self.ref.child("users").setValue(vals)
+        }
+*/
+    }
+    /*
+    func addUserToDatabase(_ fun: @escaping (([String:Any]) -> Void)) {
         ref.child("users").observe(.value, with: { (snapshot) in
             if !snapshot.hasChild(self.userID) {
-                vals = snapshot.value as? [String: Any] ?? [:]
-                vals[self.userID] = [:]
-                self.ref.child("users").push()
-                print(vals)
-                
+                var vals = snapshot.value as? [String: Any] ?? [:]
+                vals[self.userID] = NSDictionary()
+                fun(vals)
             } else {
                 print("2")
             }
-        })*/
-    }
+        })
+    }*/
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
