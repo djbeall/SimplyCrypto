@@ -65,24 +65,25 @@ class CoinListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //var lst = UserDefaults.standard.array(forKey: "MyCoins") as? [String] ?? [] as [String]
         var lst = [""]
-        ref.child("users").child(userID).observe(.value, with: { (snapshot) in
-            if snapshot.hasChildren() {
-                let value = snapshot.value as? NSDictionary
+//        if(self.ref.child("users").value(forKey: userID) != nil){
+        ref.child("users").observe(.value, with: { (snapshot) in
+            if snapshot.hasChild(self.userID) && snapshot.childSnapshot(forPath: self.userID).hasChildren() {
+                let value = snapshot.childSnapshot(forPath: self.userID).value as? NSDictionary
                 lst = value?.allKeys as! [String]
-            } else {
-                // I believe here is where we need to create an empty list in the database for the user's saved coins
             }
         }) { (error) in
             print(error.localizedDescription)
         }
+//        }
         if let currCell = tableView.cellForRow(at: indexPath) as? CoinCell {
             let newStr = currCell.coinName!.text! as String
-            if lst.contains(newStr) {
-                lst.append(newStr)
+            if !lst.contains(newStr) || lst == [""]{
+//                lst.append(newStr)
 //                UserDefaults.standard.set(lst, forKey: "MyCoins")
-                if(self.ref.child("users").child(userID).value(forKey: newStr) == nil){
-                    self.ref.child("users").child(userID).child(newStr).setValue(["bought": 0])
-                }
+//                if(self.ref.child("users").value(forKey: userID) == nil || self.ref.child("users").child(userID).value(forKey: newStr) == nil){
+//                print("yoyo2")
+                    self.ref.child("users").child(userID).child(newStr).setValue(["Amount": 0, "Value": 0])
+//                }
                 navigationController?.popViewController(animated: true)
             }
         }
