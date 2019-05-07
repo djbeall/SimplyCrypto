@@ -53,6 +53,8 @@ class MoreInfoViewController: UIViewController {
         self.lineChartView.drawGridBackgroundEnabled = true
         self.lineChartView.autoScaleMinMaxEnabled = true
         self.lineChartView.legend.enabled = false
+        self.lineChartView.backgroundColor = UIColor(red: 213/255, green: 215/255, blue: 216/255, alpha: 1)
+        self.lineChartView.tintColor = UIColor(red: 57/255, green: 62/255, blue: 70/255, alpha: 1)
         let xAxis = self.lineChartView.xAxis
         xAxis.drawLabelsEnabled = false
         setChart()
@@ -139,8 +141,11 @@ class MoreInfoViewController: UIViewController {
         }
         let date = NSDate(timeIntervalSinceReferenceDate: ohclvArr[0].time!).description
         let set1 = LineChartDataSet(entries: values, label: date)
+        set1.circleColors = [UIColor(red: 57/255, green: 62/255, blue: 70/255, alpha: 1)]
+        set1.circleHoleRadius = 2
+        set1.circleRadius = 5
+        set1.setColor(UIColor(red: 57/255, green: 62/255, blue: 70/255, alpha: 1))
         let data = LineChartData(dataSet: set1)
-        
         
         self.lineChartView.data = data
         self.lineChartView.animate(xAxisDuration: 1, yAxisDuration: 1)
