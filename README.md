@@ -1,4 +1,4 @@
-#SimplyCrypto
+# SimplyCrypto
 
 SimplyCrypto is a comprehensive app that allows users to view Cryptocurrency price trends, for multiple currencies over 
 multiple devices. Using the CryptoCompare API, we are able to display relevant information to the user through a NSURLSrtream. 
